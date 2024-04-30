@@ -110,7 +110,7 @@ def check_db_revision(engine: Engine):
     """
 
     if is_legacy_sqlite(engine):
-        logger.info("Found legacy SQLite file: %s" % (engine.url,))
+        logger.info("Found legacy SQLite file: %s", engine.url)
         raise DatabaseVersionException.behind()
 
     revisions = DbRevisions.load(engine)
