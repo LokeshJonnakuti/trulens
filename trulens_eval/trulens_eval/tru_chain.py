@@ -276,7 +276,7 @@ class TruChain(App):
             return RuntimeError(
                 f"TruChain has no attribute {__name} but the wrapped app ({type(self.app)}) does. ",
                 f"If you are calling a {type(self.app)} method, retrieve it from that app instead of from `TruChain`. "
-                f"TruChain presently only wraps Chain.__call__, Chain._call, and Chain._acall ."
+                "TruChain presently only wraps Chain.__call__, Chain._call, and Chain._acall ."
             )
         else:
             raise RuntimeError(f"TruChain has no attribute named {__name}.")

@@ -115,7 +115,7 @@ class BedrockCallback(EndpointCallback):
 
         else:
             logger.warning(
-                f"Could not parse bedrock response outcome to track usage.\n"
+                "Could not parse bedrock response outcome to track usage.\n"
                 f"{pp.pformat(response)}"
             )
 
@@ -231,7 +231,7 @@ class BedrockEndpoint(Endpoint, WithClassInfo):
                         callback.handle_generation_chunk(response=chunk)
 
             else:
-                logger.warning(f"No iterable body found in `invoke_model_with_response_stream` response.")
+                logger.warning("No iterable body found in `invoke_model_with_response_stream` response.")
 
         else:
             

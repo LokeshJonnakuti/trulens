@@ -146,7 +146,7 @@ def data_migrate(db: "DB", from_version: str):
         sql_alchemy_from_version
     )
     to_compat_version = None
-    fail_advice = f"Please open a ticket on trulens github page including this error message. The migration completed so you can still proceed; but stability is not guaranteed. If needed, you can `tru.reset_database()`"
+    fail_advice = "Please open a ticket on trulens github page including this error message. The migration completed so you can still proceed; but stability is not guaranteed. If needed, you can `tru.reset_database()`"
 
     try:
         while from_compat_version in sqlalchemy_upgrade_paths:

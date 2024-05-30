@@ -89,7 +89,7 @@ class Groundedness(SerialModel, WithClassInfo):
         groundedness_scores = {}
         if isinstance(self.groundedness_provider,
                       (AzureOpenAI, OpenAI, LiteLLM, Bedrock)):
-            groundedness_scores[f"full_doc_score"] = re_0_10_rating(
+            groundedness_scores["full_doc_score"] = re_0_10_rating(
                 self.groundedness_provider.
                 _groundedness_doc_in_out(source, statement)
             ) / 10

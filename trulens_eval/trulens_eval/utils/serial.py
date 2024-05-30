@@ -173,7 +173,7 @@ class Collect(Step):
         raise NotImplementedError()
 
     def __repr__(self):
-        return f".collect()"
+        return ".collect()"
 
 
 class StepItemOrAttribute(Step):
@@ -316,7 +316,7 @@ class GetItemOrAttribute(StepItemOrAttribute):
                 logger.warning(
                     f"Object (of type {type(obj).__name__}) is a sequence containing more than one dictionary. "
                     f"Lookup by item or attribute `{self.item_or_attribute}` is ambiguous. "
-                    f"Use a lookup by index(es) or slice first to disambiguate."
+                    "Use a lookup by index(es) or slice first to disambiguate."
                 )
                 for r in self.get(obj=obj[0]):
                     yield r
@@ -769,7 +769,7 @@ class Lens(pydantic.BaseModel):
                 return self.set(obj, [val])
             else:
                 raise ValueError(
-                    f"Trying to append to object which is not a list; "
+                    "Trying to append to object which is not a list; "
                     f"is of type {type(existing).__name__} instead."
                 )
 
@@ -875,7 +875,7 @@ class Lens(pydantic.BaseModel):
             else:
                 raise TypeError(
                     f"Unhandled sequence item types: {list(map(type, item))}. "
-                    f"Note mixing int and str is not allowed."
+                    "Note mixing int and str is not allowed."
                 )
 
         raise TypeError(f"Unhandled item type {type(item)}.")

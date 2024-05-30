@@ -61,12 +61,12 @@ class PytorchModelWrapper(ModelWrapper):
 
         if 'input_shape' in kwargs:
             tru_logger.deprecate(
-                f"PytorchModelWrapper: input_shape parameter is no longer used and will be removed in the future"
+                "PytorchModelWrapper: input_shape parameter is no longer used and will be removed in the future"
             )
             del kwargs['input_shape']
         if 'input_dtype' in kwargs:
             tru_logger.deprecate(
-                f"PytorchModelWrapper: input_dtype parameter is no longer used and will be removed in the future"
+                "PytorchModelWrapper: input_dtype parameter is no longer used and will be removed in the future"
             )
             del kwargs['input_dtype']
 
@@ -290,10 +290,10 @@ class PytorchModelWrapper(ModelWrapper):
                 else:
                     if isinstance(attribution_cut, InputCut):
                         raise ValueError(
-                            f"Requested tensors for attribution_cut=InputCut() but it contains a "
+                            "Requested tensors for attribution_cut=InputCut() but it contains a "
                             f"non-differentiable tensor of type {t.dtype}. You may need to provide "
-                            f"an attribution_cut further down in the model where floating-point "
-                            f"values first arise."
+                            "an attribution_cut further down in the model where floating-point "
+                            "values first arise."
                         )
                     else:
                         # Could be a warning here but then we'd see a lot of warnings in NLP models.
@@ -449,7 +449,7 @@ class PytorchModelWrapper(ModelWrapper):
                 # dimension so sum there is probably expected.
                 tru_logger.warning(
                     f"Attribution tensor is not scalar (it is of shape {t.shape} "
-                    f"and will be summed. This may not be your intention."
+                    "and will be summed. This may not be your intention."
                 )
 
             return B.sum(t)

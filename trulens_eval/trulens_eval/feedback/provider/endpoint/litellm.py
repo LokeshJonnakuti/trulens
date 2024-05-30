@@ -55,7 +55,7 @@ class LiteLLMEndpoint(Endpoint, WithClassInfo):
 
         if not counted_something:
             logger.warning(
-                f"Unrecognized litellm response format. It did not have usage information:\n"
+                "Unrecognized litellm response format. It did not have usage information:\n"
                 + pp.pformat(response)
             )
 

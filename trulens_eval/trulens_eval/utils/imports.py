@@ -29,7 +29,7 @@ def format_missing_imports(
 
     msg = (
         f"{','.join(packages)} is/are required for {purpose}. "
-        f"You should be able to install it/them with\n"
+        "You should be able to install it/them with\n"
         f"\tpip install {' '.join(packages)}"
     )
 

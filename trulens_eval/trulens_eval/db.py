@@ -279,7 +279,7 @@ class LocalSQLite(DB):
         if meta.trulens_version is None:
             db_version = __version__
             c.execute(
-                f"""
+                """
                 SELECT name FROM sqlite_master  
                 WHERE type='table';
                 """

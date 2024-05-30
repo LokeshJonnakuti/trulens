@@ -441,7 +441,7 @@ def flatten_substitute_tfhub(model, keras_module, tfhub_module):
                 # TODO: default to chainrule if keras layer substitution doesn't work
                 tru_logger.warning(
                     f"Unable to substitute Tensorflow Hub model {layer.name} with Keras implementation."
-                    f"Its nested layers will be hidden."
+                    "Its nested layers will be hidden."
                 )
         elif isinstance(layer, keras_module.models.Model):
             rename_nested_layers(layer, keras_module)

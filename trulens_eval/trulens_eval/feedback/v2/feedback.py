@@ -299,7 +299,7 @@ the model provider.
     # hugs.positive_sentiment
 
     prompt: ClassVar[PromptTemplate] = PromptTemplate.from_template(
-        f"""Please classify the sentiment of the following text as 10 if positive or 0 if not positive. Respond only as a number from 0 to 10, nothing more."""
+        """Please classify the sentiment of the following text as 10 if positive or 0 if not positive. Respond only as a number from 0 to 10, nothing more."""
     )
 
 

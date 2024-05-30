@@ -91,7 +91,7 @@ class Feedback(FeedbackDefinition):
                 except ImportError as e:
                     logger.warning(
                         f"Feedback implementation {imp} cannot be serialized: {e}. "
-                        f"This may be ok unless you are using the deferred feedback mode."
+                        "This may be ok unless you are using the deferred feedback mode."
                     )
 
                     kwargs['implementation'] = FunctionOrMethod.of_callable(
@@ -116,8 +116,8 @@ class Feedback(FeedbackDefinition):
                     # User defined functions in script do not have a module so cannot be serialized
                     logger.warning(
                         f"Cannot serialize aggregator {agg}. "
-                        f"Deferred mode will default to `np.mean` as aggregator. "
-                        f"If you are not using FeedbackMode.DEFERRED, you can safely ignore this warning. "
+                        "Deferred mode will default to `np.mean` as aggregator. "
+                        "If you are not using FeedbackMode.DEFERRED, you can safely ignore this warning. "
                         f"{e}"
                     )
                     pass
@@ -176,11 +176,11 @@ class Feedback(FeedbackDefinition):
 
     def _print_guessed_selector(self, par_name, par_path):
         if par_path == Select.RecordCalls:
-            alias_info = f" or `Select.RecordCalls`"
+            alias_info = " or `Select.RecordCalls`"
         elif par_path == Select.RecordInput:
-            alias_info = f" or `Select.RecordInput`"
+            alias_info = " or `Select.RecordInput`"
         elif par_path == Select.RecordOutput:
-            alias_info = f" or `Select.RecordOutput`"
+            alias_info = " or `Select.RecordOutput`"
         else:
             alias_info = ""
 
@@ -223,7 +223,7 @@ class Feedback(FeedbackDefinition):
             # Otherwise give up.
 
             raise RuntimeError(
-                f"Cannot determine default paths for feedback function arguments. "
+                "Cannot determine default paths for feedback function arguments. "
                 f"The feedback function has signature {sig}."
             )
 
@@ -490,8 +490,8 @@ class Feedback(FeedbackDefinition):
                 if isinstance(result_and_meta, Tuple):
                     # If output is a tuple of two, we assume it is the float/multifloat and the metadata.
                     assert len(result_and_meta) == 2, (
-                        f"Feedback functions must return either a single float, "
-                        f"a float-valued dict, or these in combination with a dictionary as a tuple."
+                        "Feedback functions must return either a single float, "
+                        "a float-valued dict, or these in combination with a dictionary as a tuple."
                     )
                     result_val, meta = result_and_meta
 
@@ -506,7 +506,7 @@ class Feedback(FeedbackDefinition):
                 if isinstance(result_val, dict):
                     for val in result_val.values():
                         assert isinstance(val, float), (
-                            f"Feedback function output with multivalue must be "
+                            "Feedback function output with multivalue must be "
                             f"a dict with float values but encountered {type(val)}."
                         )
                     feedback_call = FeedbackCall(

@@ -404,8 +404,8 @@ class TruCustomApp(App):
             except Exception:
                 logger.warning(
                     f"App has no component at path {full_path} . "
-                    f"Specify the component with the `app_extra_json` argument to TruCustomApp constructor. "
-                    f"Creating a placeholder there for now."
+                    "Specify the component with the `app_extra_json` argument to TruCustomApp constructor. "
+                    "Creating a placeholder there for now."
                 )
 
                 path.set(
@@ -426,7 +426,7 @@ class TruCustomApp(App):
                 logger.warning(
                     f"Function {f} was not found during instrumentation walk. "
                     f"Make sure it is accessible by traversing app {app} "
-                    f"or provide a bound method for it as TruCustomApp constructor argument `methods_to_instrument`."
+                    "or provide a bound method for it as TruCustomApp constructor argument `methods_to_instrument`."
                 )
 
             else:
@@ -437,8 +437,8 @@ class TruCustomApp(App):
                     except Exception as e:
                         logger.warning(
                             f"App has no component owner of instrumented method {m} at path {full_path}. "
-                            f"Specify the component with the `app_extra_json` argument to TruCustomApp constructor. "
-                            f"Creating a placeholder there for now."
+                            "Specify the component with the `app_extra_json` argument to TruCustomApp constructor. "
+                            "Creating a placeholder there for now."
                         )
 
                         path.set(

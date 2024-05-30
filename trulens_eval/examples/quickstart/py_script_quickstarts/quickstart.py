@@ -116,10 +116,10 @@ class RAG_from_scratch:
         [
             {"role": "user",
             "content": 
-            f"We have provided context information below. \n"
-            f"---------------------\n"
+            "We have provided context information below. \n"
+            "---------------------\n"
             f"{context_str}"
-            f"\n---------------------\n"
+            "\n---------------------\n"
             f"Given this information, please answer the question: {query}"
             }
         ]

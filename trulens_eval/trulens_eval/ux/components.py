@@ -96,7 +96,7 @@ def draw_call(call: RecordAppCall) -> None:
         )
     )
 
-    with st.expander(label=f"Call " + render_call_frame(top, path=path) + " " +
+    with st.expander(label="Call " + render_call_frame(top, path=path) + " " +
                      render_selector_markdown(path)):
 
         args = call.args
@@ -139,7 +139,7 @@ def draw_calls(record: Record, index: int) -> None:
 def draw_prompt_info(query: JSONPath, component: ComponentView) -> None:
     prompt_details_json = jsonify(component.json, skip_specials=True)
 
-    st.caption(f"Prompt details")
+    st.caption("Prompt details")
 
     path = Select.for_app(query)
 
@@ -165,7 +165,7 @@ def draw_prompt_info(query: JSONPath, component: ComponentView) -> None:
 def draw_llm_info(query: JSONPath, component: ComponentView) -> None:
     llm_details_json = component.json
 
-    st.subheader(f"*LLM Details*")
+    st.subheader("*LLM Details*")
     # path_str = str(query)
     # st.text(path_str[:-4])
 
@@ -229,7 +229,7 @@ def draw_agent_info(query: JSONPath, component: ComponentView) -> None:
     # TODO: dedup
     prompt_details_json = jsonify(component.json, skip_specials=True)
 
-    st.subheader(f"*Agent Details*")
+    st.subheader("*Agent Details*")
 
     path = Select.for_app(query)
 
@@ -257,7 +257,7 @@ def draw_tool_info(query: JSONPath, component: ComponentView) -> None:
     # TODO: dedup
     prompt_details_json = jsonify(component.json, skip_specials=True)
 
-    st.subheader(f"*Tool Details*")
+    st.subheader("*Tool Details*")
 
     path = Select.for_app(query)
 

@@ -651,7 +651,7 @@ class AppDefinition(SerialModel, WithClassInfo):
 
             except Exception as e:
                 logger.warning(
-                    f"Could not serialize app loader. "
+                    "Could not serialize app loader. "
                     f"Some trulens features may not be available: {e}"
                 )
 

@@ -416,7 +416,7 @@ class ObjSerial(Obj):
             if len(sig.parameters) > 0:
                 raise RuntimeError(
                     f"Do not know how to get constructor arguments for object of type {cls.__name__}. "
-                    f"If you are defining a custom feedback function, define its implementation as a function or a method of a Provider subclass."
+                    "If you are defining a custom feedback function, define its implementation as a function or a method of a Provider subclass."
                 )
 
             init_args = ()

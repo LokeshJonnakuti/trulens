@@ -78,7 +78,7 @@ def _update_db_json_col(
 
 def migrate_0_3_0(db):
     conn, c = db._connect()
-    c.execute(f"""ALTER TABLE feedbacks
+    c.execute("""ALTER TABLE feedbacks
         ADD multi_result TEXT;""")
     conn.commit()
 
@@ -92,7 +92,7 @@ def migrate_0_2_0(db):
 
     conn, c = db._connect()
     c.execute(
-        f"""SELECT * FROM records"""
+        """SELECT * FROM records"""
     )  # Use hardcode names as versions could go through name change
     rows = c.fetchall()
     json_db_col_idx = 7
@@ -118,7 +118,7 @@ def migrate_0_2_0(db):
             new_json=new_json
         )
 
-    c.execute(f"""SELECT * FROM feedbacks""")
+    c.execute("""SELECT * FROM feedbacks""")
     rows = c.fetchall()
     json_db_col_idx = 9
     for old_entry in tqdm(rows, desc="Migrating Feedbacks DB 0.2.0 to 0.3.0"):
@@ -133,7 +133,7 @@ def migrate_0_2_0(db):
             new_json=new_json
         )
 
-    c.execute(f"""SELECT * FROM feedback_defs""")
+    c.execute("""SELECT * FROM feedback_defs""")
     rows = c.fetchall()
     json_db_col_idx = 1
     for old_entry in tqdm(rows,
@@ -170,7 +170,7 @@ def migrate_0_1_2(db):
     conn, c = db._connect()
 
     c.execute(
-        f"""ALTER TABLE records
+        """ALTER TABLE records
         RENAME COLUMN chain_id TO app_id;
         """
     )
@@ -180,11 +180,11 @@ def migrate_0_1_2(db):
         DEFAULT "{MIGRATION_UNKNOWN_STR}";"""
     )
 
-    c.execute(f"""ALTER TABLE feedbacks
+    c.execute("""ALTER TABLE feedbacks
         DROP COLUMN chain_id;""")
 
     c.execute(
-        f"""SELECT * FROM records"""
+        """SELECT * FROM records"""
     )  # Use hardcode names as versions could go through name change
     rows = c.fetchall()
     json_db_col_idx = 4
@@ -205,7 +205,7 @@ def migrate_0_1_2(db):
             new_json=new_json
         )
 
-    c.execute(f"""SELECT * FROM chains""")
+    c.execute("""SELECT * FROM chains""")
     rows = c.fetchall()
     json_db_col_idx = 1
     for old_entry in tqdm(rows, desc="Migrating Apps DB 0.1.2 to 0.2.0"):
@@ -357,13 +357,13 @@ def _check_needs_migration(version: str, warn=False) -> None:
         if _upgrade_possible(compat_version):
             msg = (
                 f"Detected that your db version {version} is from an older release that is incompatible with this release. "
-                f"You can either reset your db with `tru.reset_database()`, "
-                f"or you can initiate a db migration with `tru.migrate_database()`"
+                "You can either reset your db with `tru.reset_database()`, "
+                "or you can initiate a db migration with `tru.migrate_database()`"
             )
         else:
             msg = (
                 f"Detected that your db version {version} is from an older release that is incompatible with this release and cannot be migrated. "
-                f"Reset your db with `tru.reset_database()`"
+                "Reset your db with `tru.reset_database()`"
             )
         if warn:
             print(f"Warning! {msg}")

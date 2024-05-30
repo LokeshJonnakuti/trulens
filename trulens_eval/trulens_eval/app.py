@@ -790,8 +790,8 @@ class App(AppDefinition, SerialModel, WithInstrumentCallbacks, Hashable):
 
             logger.warning(
                 f"Function {func} has not been instrumented. "
-                f"This may be ok if it will call a function that has been instrumented exactly once. "
-                f"Otherwise unexpected results may follow. "
+                "This may be ok if it will call a function that has been instrumented exactly once. "
+                "Otherwise unexpected results may follow. "
                 f"You can use `AddInstruments.method` of `trulens_eval.instruments` before you use the `{self.__class__.__name__}` wrapper "
                 f"to make sure `{func.__name__}` does get instrumented. "
                 f"`{self.__class__.__name__}` method `print_instrumented` may be used to see methods that have been instrumented. "
@@ -831,7 +831,7 @@ class App(AppDefinition, SerialModel, WithInstrumentCallbacks, Hashable):
             ret = await func(*args, **kwargs)
 
         assert len(ctx.records) > 0, (
-            f"Did not create any records. "
+            "Did not create any records. "
             f"This means that no instrumented methods were invoked in the process of calling {func}."
         )
 
@@ -868,7 +868,7 @@ class App(AppDefinition, SerialModel, WithInstrumentCallbacks, Hashable):
             ret = func(*args, **kwargs)
 
         assert len(ctx.records) > 0, (
-            f"Did not create any records. "
+            "Did not create any records. "
             f"This means that no instrumented methods were invoked in the process of calling {func}."
         )
 
@@ -891,7 +891,7 @@ class App(AppDefinition, SerialModel, WithInstrumentCallbacks, Hashable):
 
         app_callable = f"""app.{method}"""
         if iscall:
-            app_callable = f"app"
+            app_callable = "app"
 
         print(
             f"""

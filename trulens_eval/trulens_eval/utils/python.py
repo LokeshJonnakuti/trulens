@@ -197,7 +197,7 @@ def stack_with_tasks() -> Sequence['frame']:
             logger.debug(f"\t{s}")
 
         temp = merge_stacks(ret, task_stack)
-        logger.debug(f"Complete stack:")
+        logger.debug("Complete stack:")
         for f in temp:
             logger.debug(f"\t{f}")
 
@@ -282,7 +282,7 @@ def get_all_local_in_call_stack(
         if func(f.f_code):
             logger.debug(f"Looking via {func.__name__}; found {f}")
             if skip is not None and f == skip:
-                logger.debug(f"Skipping.")
+                logger.debug("Skipping.")
                 continue
 
             locs = f.f_locals

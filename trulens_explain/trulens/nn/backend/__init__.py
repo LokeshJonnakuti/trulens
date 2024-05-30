@@ -135,10 +135,10 @@ def tile(what: TensorAKs, onto: TensorAKs) -> TensorAKs:
         if val.shape[0] != inputs_dim:
             tru_logger.warning(
                 f"Value {val} of shape {val.shape} is assumed to not be "
-                f"batchable due to its shape not matching prior batchable "
+                "batchable due to its shape not matching prior batchable "
                 f"values of shape ({inputs_dim},...). If this is "
-                f"incorrect, make sure its first dimension matches prior "
-                f"batchable values."
+                "incorrect, make sure its first dimension matches prior "
+                "batchable values."
             )
             return val
 

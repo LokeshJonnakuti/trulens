@@ -332,7 +332,7 @@ def _collect_keys(*args: Tuple[str], **kwargs: Dict[str,
         temp_v = kwargs.get(k)
         if _value_is_set(temp_v):
             valid_sources[temp_v].append(
-                f"explicit value to `check_or_set_keys`"
+                "explicit value to `check_or_set_keys`"
             )
             valid_values.add(temp_v)
 
@@ -346,7 +346,7 @@ def _collect_keys(*args: Tuple[str], **kwargs: Dict[str,
         # Globals of caller.
         temp_v = globs.get(k)
         if _value_is_set(temp_v):
-            valid_sources[temp_v].append(f"python variable")
+            valid_sources[temp_v].append("python variable")
             valid_values.add(temp_v)
 
         if len(valid_values) == 0:
@@ -358,7 +358,7 @@ def _collect_keys(*args: Tuple[str], **kwargs: Dict[str,
                 f"""value ending in {v[-1]} in {' and '.join(valid_sources[v])}"""
                 for v in valid_values
             )
-            warning += f"\nUsing one arbitrarily."
+            warning += "\nUsing one arbitrarily."
             logger.warning(warning)
 
             ret[k] = list(valid_values)[0]
