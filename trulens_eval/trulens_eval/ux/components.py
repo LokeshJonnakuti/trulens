@@ -1,5 +1,4 @@
 import json
-import random
 from typing import Dict, List, Optional
 
 import pandas as pd
@@ -20,6 +19,7 @@ from trulens_eval.utils.pyschema import is_noserio
 from trulens_eval.utils.serial import GetItemOrAttribute
 from trulens_eval.utils.serial import JSON_BASES
 from trulens_eval.utils.serial import JSONPath
+import secrets
 
 
 def write_or_json(st, obj):
@@ -47,7 +47,7 @@ def copy_to_clipboard(path, *args, **kwargs):
 
 def draw_selector_button(path) -> None:
     st.button(
-        key=str(random.random()),
+        key=str(secrets.SystemRandom().random()),
         label=f"{Select.render_for_dashboard(path)}",
         on_click=copy_to_clipboard,
         args=(path,)
