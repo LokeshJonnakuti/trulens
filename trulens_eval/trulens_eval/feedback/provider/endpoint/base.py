@@ -6,7 +6,6 @@ import inspect
 import logging
 from pprint import PrettyPrinter
 from queue import Queue
-import random
 from threading import Thread
 from time import sleep
 from types import AsyncGeneratorType
@@ -29,6 +28,7 @@ from trulens_eval.utils.python import Thunk
 from trulens_eval.utils.serial import JSON
 from trulens_eval.utils.serial import SerialModel
 from trulens_eval.utils.threading import DEFAULT_NETWORK_TIMEOUT
+import secrets
 
 logger = logging.getLogger(__name__)
 
@@ -918,7 +918,7 @@ class DummyEndpoint(Endpoint):
     loading_prob: float
     # How much time to indicate as needed to load the model in the above response.
     loading_time: Callable[[], float] = \
-        pydantic.Field(exclude=True, default_factory=lambda: lambda: random.uniform(0.73, 3.7))
+        pydantic.Field(exclude=True, default_factory=lambda: lambda: secrets.SystemRandom().uniform(0.73, 3.7))
 
     # How often to produce an error response.
     error_prob: float
@@ -979,7 +979,7 @@ class DummyEndpoint(Endpoint):
         )
         """
 
-        r = random.random()
+        r = secrets.SystemRandom().random()
         j: Optional[JSON] = None
 
         if r < self.freeze_prob:
@@ -1016,13 +1016,13 @@ class DummyEndpoint(Endpoint):
                 [
                     {
                         'label': 'LABEL_1',
-                        'score': 0.6034979224205017 + random.random()
+                        'score': 0.6034979224205017 + secrets.SystemRandom().random()
                     }, {
                         'label': 'LABEL_2',
-                        'score': 0.2648237645626068 + random.random()
+                        'score': 0.2648237645626068 + secrets.SystemRandom().random()
                     }, {
                         'label': 'LABEL_0',
-                        'score': 0.13167837262153625 + random.random()
+                        'score': 0.13167837262153625 + secrets.SystemRandom().random()
                     }
                 ]
             ]
